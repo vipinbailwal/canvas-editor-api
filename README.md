@@ -1,12 +1,36 @@
 # Canvas Builder API with PDF Export
 
+
+### Frontend
+![React](https://img.shields.io/badge/React-20232A?style=for-the-badge&logo=react&logoColor=61DAFB)
+![JavaScript](https://img.shields.io/badge/JavaScript-20232A?style=for-the-badge&logo=javascript&logoColor=F7DF1E)
+![HTML5](https://img.shields.io/badge/HTML5-20232A?style=for-the-badge&logo=html5&logoColor=E34F26)
+![CSS3](https://img.shields.io/badge/CSS3-20232A?style=for-the-badge&logo=css3&logoColor=1572B6)
+
+### Backend
+![Node.js](https://img.shields.io/badge/Node.js-20232A?style=for-the-badge&logo=node.js&logoColor=339933)
+![Express.js](https://img.shields.io/badge/Express.js-20232A?style=for-the-badge&logo=express&logoColor=white)
+
+### Deployment
+![Vercel](https://img.shields.io/badge/Vercel-20232A?style=for-the-badge&logo=vercel&logoColor=white)
+
 A professional full-stack application designed to create, manipulate, and export digital canvases. This project demonstrates a seamless integration between a React frontend and a Node.js backend to handle real-time canvas rendering and server-side PDF generation.
 
 ---
 
-## 🚀 Overview
+## Overview
 
-This application provides a suite of tools for users to build visual compositions using basic geometric shapes, text, and external images. Utilizing an **immediate-mode rendering** approach, it bridges the gap between client-side interaction and server-side document processing.
+This project is a full-stack application that allows users to create a drawable canvas, add basic visual elements (rectangles, circles, text, and images), preview the result in real time, and export the final canvas as a downloadable PDF.
+
+The backend is built using Node.js and Express and handles canvas rendering and PDF generation.  
+The frontend is built using React and provides a simple and interactive user interface.
+
+## Live Demo
+
+Frontend (Vercel):  
+👉 https://canvas-editor-api.vercel.app/
+
+> Note: The backend is intended to run locally due to native canvas dependencies.
 
 ### Key Features
 - **Dynamic Initialization:** Define custom canvas dimensions (Width/Height) on the fly.
@@ -47,6 +71,8 @@ canvas-builder-api/
 ```
 # Canvas Builder API with PDF Export
 
+
+
 A professional full-stack application designed to create, manipulate, and export digital canvases. This project demonstrates a seamless integration between a React frontend and a Node.js backend to handle real-time canvas rendering and server-side PDF generation.
 
 ---
@@ -67,13 +93,21 @@ node index.js
 * The server will start on: http://localhost:3000 
 
 ### 2. Frontend Setup
+
+* Environment Variable Setup
+ *Create a .env file inside the frontend folder:
+  ```bash
+    REACT_APP_API_BASE=http://localhost:3000
+  ```
+  
 ```bash
 
 cd frontend
 npm install
 npm start
 ```
-* The UI will be available at: http://localhost:3001 
+* The UI will be available at: http://localhost:3001
+
 
 ## 📡 API Endpoints
 
@@ -85,6 +119,28 @@ npm start
 | `POST` | `/api/canvas/:id/add/text` | Add a text element with custom font, color, and size. |
 | `POST` | `/api/canvas/:id/add/image` | Render an image onto the canvas using a provided image URL. |
 | `GET` | `/api/canvas/:id/export/pdf` | Generate and download the final canvas as a compressed PDF. |
+
+
+## Deployment
+
+### Frontend
+
+The frontend application is deployed on **Vercel** and is accessible at:
+
+👉 https://canvas-editor-api.vercel.app/
+
+Environment variables for the frontend are configured using the Vercel dashboard.
+
+---
+
+### Backend
+
+The backend uses **node-canvas**, which requires native system dependencies (such as Cairo).  
+Due to this requirement, the backend is intended to run locally or be deployed on platforms that support native builds, such as **Render** or **Railway**.
+
+
+
+
 
 ## 📝 Implementation Details
 
