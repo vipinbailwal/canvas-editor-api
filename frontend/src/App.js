@@ -1,7 +1,7 @@
 import React, { useRef, useState } from 'react';
 import axios from 'axios';
 
-const API_BASE = 'http://localhost:3000';
+const API_BASE = process.env.REACT_APP_API_BASE;
 
 function App() {
   const canvasRef = useRef(null);
