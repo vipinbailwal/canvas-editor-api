@@ -1,70 +1,103 @@
-# Getting Started with Create React App
+# Canvas Builder API with PDF Export
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+A professional full-stack application designed to create, manipulate, and export digital canvases. This project demonstrates a seamless integration between a React frontend and a Node.js backend to handle real-time canvas rendering and server-side PDF generation.
 
-## Available Scripts
+---
 
-In the project directory, you can run:
+## 🚀 Overview
 
-### `npm start`
+This application provides a suite of tools for users to build visual compositions using basic geometric shapes, text, and external images. Utilizing an **immediate-mode rendering** approach, it bridges the gap between client-side interaction and server-side document processing.
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+### Key Features
+- **Dynamic Initialization:** Define custom canvas dimensions (Width/Height) on the fly.
+- **Rich Elements:** Support for Rectangles, Circles, Text, and URL-based Image rendering.
+- **PDF Export:** High-quality PDF generation with built-in size optimization and compression.
+- **Live Preview:** Real-time synchronization between UI controls and the HTML5 Canvas.
+- **Robust Backend:** Built-in validation for canvas bounds and state management.
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+---
 
-### `npm test`
+## 🛠 Tech Stack
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+| Layer | Technologies |
+| :--- | :--- |
+| **Frontend** | React, JavaScript (ES6+), HTML5 Canvas, Axios |
+| **Backend** | Node.js, Express |
+| **Libraries** | node-canvas, PDFKit, UUID, CORS |
+| **Tooling** | NPM, Git |
 
-### `npm run build`
+---
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+## 📂 Project Structure
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+```text
+canvas-builder-api/
+├── backend/
+│   ├── index.js          # Express server & API Logic
+│   └── package.json      # Backend dependencies
+├── frontend/
+│   ├── src/
+│   │   ├── App.js        # Main React Logic
+│   │   ├── index.js      # Entry point
+│   │   └── index.css     # Styling
+│   ├── public/
+│   └── package.json      # Frontend dependencies
+├── .gitignore
+└── README.md
+```
+# Canvas Builder API with PDF Export
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+A professional full-stack application designed to create, manipulate, and export digital canvases. This project demonstrates a seamless integration between a React frontend and a Node.js backend to handle real-time canvas rendering and server-side PDF generation.
 
-### `npm run eject`
+---
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+## ⚙️ Setup & Installation
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+### Prerequisites
+* **Node.js** (v18.x or higher recommended)
+* **NPM** (comes with Node.js)
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+### 1. Backend Setup
+```bash
+cd backend
+npm install
+node index.js
+```
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+* The server will start on: http://localhost:3000 
 
-## Learn More
+### 2. Frontend Setup
+```bash
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+cd frontend
+npm install
+npm start
+```
+* The UI will be available at: http://localhost:3001 
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+## 📡 API Endpoints
 
-### Code Splitting
+| Method | Endpoint | Description |
+| :--- | :--- | :--- |
+| `POST` | `/api/canvas/init` | Initialize a new canvas with specific `width` and `height`. |
+| `POST` | `/api/canvas/:id/add/rectangle` | Add a rectangle element to the specified canvas session. |
+| `POST` | `/api/canvas/:id/add/circle` | Add a circle element to the specified canvas session. |
+| `POST` | `/api/canvas/:id/add/text` | Add a text element with custom font, color, and size. |
+| `POST` | `/api/canvas/:id/add/image` | Render an image onto the canvas using a provided image URL. |
+| `GET` | `/api/canvas/:id/export/pdf` | Generate and download the final canvas as a compressed PDF. |
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+## 📝 Implementation Details
 
-### Analyzing the Bundle Size
+* **Memory Management:** For the scope of this project, canvas states are stored in-memory to ensure high performance and simplify the assignment architecture.
+* **Rendering Logic:** The backend utilizes `node-canvas` to mirror the frontend's drawing operations exactly, ensuring 1:1 visual consistency in the final PDF export.
+* **CORS Handling:** Security headers are configured to allow seamless communication between the React frontend (Port 3001) and the Express backend (Port 3000).
+* **Optimization:** `PDFKit` is configured with internal compression enabled to ensure high-fidelity output with portable file sizes.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+  ## 🏁 Conclusion
 
-### Making a Progressive Web App
+This project serves as a comprehensive example of a full-stack CRUD application with a focus on graphics processing. It is built to be scalable, professional, and demonstrates proficiency in both client-side interactivity and server-side document generation.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
 
-### Advanced Configuration
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
 
-### Deployment
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
